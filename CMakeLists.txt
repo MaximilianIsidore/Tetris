@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(Tetris)
 
 # Set C++ standard
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 
 # Set SFML_DIR to the extracted location
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML-3.0.0/lib/cmake/SFML")
