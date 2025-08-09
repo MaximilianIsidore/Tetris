@@ -5,9 +5,9 @@ module;
 #include <span>
 
 export module board;
-import module tetromino;
+import tetromino;
 
-export class board{
+export class Board{
     public:
         static constexpr int WIDTH = 10;
         static constexpr int HEIGHT = 20;
@@ -21,8 +21,8 @@ export class board{
             sf::Color::Green,
             sf::Color::Red,
             sf::Color::Blue,
-            sf::Color::(255, 165, 0) //orange
-        }
+            sf::Color(255, 165, 0) //orange
+        };
 
         Board(){
             grid.fill({});
@@ -39,7 +39,7 @@ export class board{
             locked_grid.fill({});
         }
 
-        void update_tetromino(const Tetromino% tetromino){
+        void update_tetromino(const Tetromino& tetromino){
 
             for(int y=0; y < HEIGHT; ++y){
                 for(int x=0; x < WIDTH; ++x){
@@ -63,7 +63,7 @@ export class board{
                         int board_y = pos_y + y;
 
                         if(board_x >= 0 && board_x < WIDTH && board_y >= 0 && board_y < HEIGHT){
-                            grif[board_y][board_x] = type;
+                            grid[board_y][board_x] = type;
                         }
                     }
                 }
@@ -72,9 +72,9 @@ export class board{
 
         void lock_current_piece(const Tetromino& tetromino){
             auto shape = tetromino.get_shape();
-            int type  = static_cast<int>(teromino.get_type());
+            int type  = static_cast<int>(tetromino.get_type());
             int pos_x = tetromino.get_pos_x();
-            int pos_y - tetromino.get_pos_y();
+            int pos_y = tetromino.get_pos_y();
 
             for (int y = 0; y < Tetromino::GRID_SIZE; ++y) {
                 for (int x = 0; x < Tetromino::GRID_SIZE; ++x) {
@@ -91,7 +91,7 @@ export class board{
             }
         }
 
-        bool is_collision(const Tetromini& tetromino) const {
+        bool is_collision(const Tetromino& tetromino) const {
 
             auto shape = tetromino.get_shape();
             int pos_x = tetromino.get_pos_x();
@@ -151,6 +151,12 @@ export class board{
             }
             return lines_cleared;
         }
+
+        bool is_game_over(const Tetromino& tetromino) const {
+            // If a newly spawned piece immediately collides, game is over
+            return is_collision(tetromino);
+        }
+
 
         private:
             std::array<std::array<int, WIDTH>, HEIGHT> grid;
