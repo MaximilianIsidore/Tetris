@@ -18,5 +18,16 @@ set_target_properties(Tetris PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin"
 )
 
+target_sources(${PROJECT_NAME}
+        PUBLIC
+        FILE_SET CXX_MODULES FILES
+        utilities.ixx
+        board.ixx
+        tetromino.ixx 
+        gamestate.ixx
+        game.ixx 
+        board_entity.ixx 
+)
+
 # Link SFML libraries
 target_link_libraries(Tetris PRIVATE SFML::Graphics SFML::Window SFML::System)
