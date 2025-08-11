@@ -11,14 +11,14 @@ export class Tetromino{
         static constexpr int GRID_SIZE = 4;
 
         Tetromino(Type type)
-            : curren_type(type)
+            : current_type(type)
             , current_rotation(0)
             , pos_x(3)
-            , pos_y(0);
+            , pos_y(0)
             , last_pos_x(3)
             , last_pos_y(0){
 
-                intialize_shape(type);
+                initialize_shape(type);
                 last_shape = current_shape;
         }
 
