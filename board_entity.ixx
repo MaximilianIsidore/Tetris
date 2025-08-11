@@ -18,7 +18,7 @@ public:
         auto grid = board_.get_grid();
         for (int y = 0; y < Board::HEIGHT; ++y) {
             for (int x = 0; x < Board::WIDTH; ++x) {
-                block.setPosition(x * Board::BLOCK_SIZE, y * Board::BLOCK_SIZE);
+                block.setPosition({x * Board::BLOCK_SIZE, y * Board::BLOCK_SIZE});
                 block.setFillColor(Board::BLOCK_COLORS[grid[y][x]]);
                 window.draw(block);
             }
