@@ -11,7 +11,7 @@ A classic Tetris clone built using **C++** and **SFML 3**.
 ## Requirements
 - **C++17** or later
 - [SFML 3](https://www.sfml-dev.org/) (built and linked to your project)
-- CMake (optional, if you use it for building)
+- CMake
 
 ---
 
@@ -31,7 +31,7 @@ A classic Tetris clone built using **C++** and **SFML 3**.
 
 ---
 
-## 🚀 How to Build
+## How to Build
 ```bash
 git clone https://github.com/MaximilianIsidore/Tetris.git
 cd Tetris
